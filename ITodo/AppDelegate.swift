@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ITodo
 //
-//  Created by xda-yoshioka on 2019/10/03.
+//  Created by velo.yamigiku on 2019/10/03.
 //  Copyright © 2019 velo.yamigiku. All rights reserved.
 //
 
