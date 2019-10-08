@@ -42,4 +42,18 @@ class TodoListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController?.pushViewController(todoEditViewController, animated: true)
         
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            // 内部のTodo一覧を更新する。
+            todoList.remove(at: indexPath.row)
+            // セルを削除する。
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
 }
