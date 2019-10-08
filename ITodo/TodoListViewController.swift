@@ -31,5 +31,15 @@ class TodoListViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
         
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Todo編集画面のViewControllerを作成する。
+        let todoEditViewController = self.storyboard?.instantiateViewController(identifier: "TodoEditViewController") as! TodoEditViewController
+        todoEditViewController.todoListIdx = indexPath.row
+        todoEditViewController.todoTitle = todoList[indexPath.row]
+        // Todo編集画面に遷移する。
+        self.navigationController?.pushViewController(todoEditViewController, animated: true)
+        
+    }
 }
