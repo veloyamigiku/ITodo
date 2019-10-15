@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TodoAddViewController: UIViewController {
     
     @IBOutlet weak var todoTitle: UITextField!
     
+    var realm: Realm!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        realm = try! Realm()
     }
     
     @IBAction func tapDone(_ sender: Any) {
@@ -28,8 +33,16 @@ class TodoAddViewController: UIViewController {
             if nc.viewControllers[count - 2] is TodoListViewController {
                 // ビューコントローラのスタックの最後から１つ前のビューコントローラを参照する。
                 let vc = nc.viewControllers[count - 1 - 1] as! TodoListViewController
+                
+                // 新規Todoをデータベースに保存する。
+                try! realm.write {
+                    let todo = Todo()
+                    todo.title = todoTitle.text!
+                    realm.add(todo)
+                }
                 // 前の画面のビューコントローラを介して、本画面の値を引き継ぐ。
-                vc.todoList.append(todoTitle.text!)
+                // Todo一覧変数をデータベース内のTodoで更新する。
+                vc.todoList = realm.objects(Todo.self)
                 vc.tableView.reloadData()
             }
             // 前の画面に遷移する。

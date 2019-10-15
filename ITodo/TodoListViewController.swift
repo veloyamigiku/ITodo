@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TodoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var todoList = [String]()
+    //var todoList = [String]()
+    var todoList: Results<Todo>!
+    var realm: Realm!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Todo一覧変数を、データベース内のTodoで更新する。
+        realm = try! Realm()
+        todoList = realm.objects(Todo.self)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,7 +34,8 @@ class TodoListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
         
-        cell.textLabel?.text = todoList[indexPath.row]
+        let todo: Todo = todoList[indexPath.row]
+        cell.textLabel?.text = todo.title
         
         return cell
         
@@ -36,8 +45,10 @@ class TodoListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Todo編集画面のViewControllerを作成する。
         let todoEditViewController = self.storyboard?.instantiateViewController(identifier: "TodoEditViewController") as! TodoEditViewController
-        todoEditViewController.todoListIdx = indexPath.row
-        todoEditViewController.todoTitle = todoList[indexPath.row]
+        
+        let todo: Todo = todoList[indexPath.row]
+        todoEditViewController.todo = todo
+        
         // Todo編集画面に遷移する。
         self.navigationController?.pushViewController(todoEditViewController, animated: true)
         
@@ -50,10 +61,21 @@ class TodoListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            // データベースからTodoを削除する。
+            try! realm.write {
+                realm.delete(todoList[indexPath.row])
+            }
             // 内部のTodo一覧を更新する。
-            todoList.remove(at: indexPath.row)
+            todoList = realm.objects(Todo.self)
+            
             // セルを削除する。
-            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            tableView.deleteRows(
+                at: [indexPath as IndexPath],
+                with: UITableView.RowAnimation.automatic)
+            
+            tableView.reloadData()
+            
         }
     }
 }
