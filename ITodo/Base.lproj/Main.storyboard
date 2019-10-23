@@ -77,13 +77,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF8-dI-W3A">
+                                <rect key="frame" x="15" y="149" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IG4-J2-udw">
+                                <rect key="frame" x="15" y="190" width="290" height="363"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="fic-Z6-VRo" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="5Gx-SI-6z4"/>
                             <constraint firstItem="PmV-ED-tbc" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="G1D-Fr-L5x"/>
+                            <constraint firstItem="NF8-dI-W3A" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="Gzg-vb-lqi"/>
+                            <constraint firstItem="W2i-sr-brb" firstAttribute="bottom" secondItem="IG4-J2-udw" secondAttribute="bottom" constant="15" id="KmB-ft-9g0"/>
+                            <constraint firstItem="W2i-sr-brb" firstAttribute="trailing" secondItem="IG4-J2-udw" secondAttribute="trailing" constant="15" id="ObW-g4-EVq"/>
+                            <constraint firstItem="NF8-dI-W3A" firstAttribute="top" secondItem="PmV-ED-tbc" secondAttribute="bottom" constant="20" id="a0H-L2-dNW"/>
                             <constraint firstItem="W2i-sr-brb" firstAttribute="trailing" secondItem="PmV-ED-tbc" secondAttribute="trailing" constant="15" id="anH-Lr-quu"/>
+                            <constraint firstItem="IG4-J2-udw" firstAttribute="top" secondItem="NF8-dI-W3A" secondAttribute="bottom" constant="20" id="e6k-BP-6AJ"/>
                             <constraint firstItem="PmV-ED-tbc" firstAttribute="top" secondItem="fic-Z6-VRo" secondAttribute="bottom" constant="15" id="fI5-nD-bOa"/>
+                            <constraint firstItem="IG4-J2-udw" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="j31-fh-CDb"/>
                             <constraint firstItem="fic-Z6-VRo" firstAttribute="top" secondItem="W2i-sr-brb" secondAttribute="top" constant="15" id="xz7-6q-jcH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2i-sr-brb"/>
@@ -96,6 +115,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="todoContent" destination="IG4-J2-udw" id="6ZA-vM-2im"/>
                         <outlet property="todoTitle" destination="PmV-ED-tbc" id="8Et-1w-Qh4"/>
                     </connections>
                 </viewController>
@@ -117,18 +137,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojv-y1-woE">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトルを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojv-y1-woE">
                                 <rect key="frame" x="15" y="51" width="290" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgy-w5-uS3">
+                                <rect key="frame" x="15" y="105" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oex-kS-blm">
+                                <rect key="frame" x="15" y="146" width="290" height="407"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8VV-Rl-jui" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="64z-v6-gj9"/>
+                            <constraint firstItem="RTQ-qr-erv" firstAttribute="trailing" secondItem="oex-kS-blm" secondAttribute="trailing" constant="15" id="7Yd-n9-BnH"/>
                             <constraint firstItem="ojv-y1-woE" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="Efu-bn-ujj"/>
                             <constraint firstItem="8VV-Rl-jui" firstAttribute="top" secondItem="RTQ-qr-erv" secondAttribute="top" constant="15" id="Nz2-9n-9jf"/>
+                            <constraint firstItem="RTQ-qr-erv" firstAttribute="bottom" secondItem="oex-kS-blm" secondAttribute="bottom" constant="15" id="aXL-16-dct"/>
+                            <constraint firstItem="oex-kS-blm" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="evv-Na-iTv"/>
+                            <constraint firstItem="oex-kS-blm" firstAttribute="top" secondItem="lgy-w5-uS3" secondAttribute="bottom" constant="20" id="f3F-3s-R16"/>
                             <constraint firstItem="ojv-y1-woE" firstAttribute="top" secondItem="8VV-Rl-jui" secondAttribute="bottom" constant="15" id="lvI-cy-ePu"/>
+                            <constraint firstItem="lgy-w5-uS3" firstAttribute="top" secondItem="ojv-y1-woE" secondAttribute="bottom" constant="20" id="wZT-ND-ogo"/>
+                            <constraint firstItem="lgy-w5-uS3" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="xYf-c9-Y4Y"/>
                             <constraint firstItem="RTQ-qr-erv" firstAttribute="trailing" secondItem="ojv-y1-woE" secondAttribute="trailing" constant="15" id="yli-uS-SoE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RTQ-qr-erv"/>
@@ -137,6 +176,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="shR-Mh-fll"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="todoContentTv" destination="oex-kS-blm" id="P4C-dQ-3XL"/>
                         <outlet property="todoTitleTf" destination="ojv-y1-woE" id="KFP-gW-Jhf"/>
                     </connections>
                 </viewController>

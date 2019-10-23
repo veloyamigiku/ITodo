@@ -12,6 +12,7 @@ import RealmSwift
 class TodoEditViewController: UIViewController {
     
     @IBOutlet weak var todoTitleTf: UITextField!
+    @IBOutlet weak var todoContentTv: UITextView!
     
     var todo: Todo! = nil
     var realm: Realm!
@@ -21,8 +22,8 @@ class TodoEditViewController: UIViewController {
         
         realm = try! Realm()
         
-        //todoTitleTf.text = todoTitle
         todoTitleTf.text = todo.title
+        todoContentTv.text = todo.content
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonItem.SystemItem.done,
@@ -40,6 +41,7 @@ class TodoEditViewController: UIViewController {
                 // データベースの既存Todoを更新する。
                 try! realm.write {
                     todo.title = todoTitleTf.text!
+                    todo.content = todoContentTv.text
                 }
                 // Todo一覧変数をデータベース内のTodoで更新する。
                 vc.todoList = realm.objects(Todo.self)

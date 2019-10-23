@@ -9,9 +9,10 @@
 import UIKit
 import RealmSwift
 
-class TodoAddViewController: UIViewController {
+class TodoAddViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var todoTitle: UITextField!
+    @IBOutlet weak var todoContent: UITextView!
     
     var realm: Realm!
     
@@ -38,6 +39,7 @@ class TodoAddViewController: UIViewController {
                 try! realm.write {
                     let todo = Todo()
                     todo.title = todoTitle.text!
+                    todo.content = todoContent.text
                     realm.add(todo)
                 }
                 // 前の画面のビューコントローラを介して、本画面の値を引き継ぐ。
@@ -49,4 +51,5 @@ class TodoAddViewController: UIViewController {
             nc.popViewController(animated: true)
         }
     }
+    
 }
