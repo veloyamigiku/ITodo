@@ -159,7 +159,7 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oex-kS-blm" customClass="SampleTextView" customModule="ITodo" customModuleProvider="target">
                                 <rect key="frame" x="15" y="146" width="290" height="407"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -214,8 +214,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byr-tf-HM3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="10" y="10" width="300" height="548"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -223,20 +223,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="au6-hQ-Mid" firstAttribute="bottom" secondItem="byr-tf-HM3" secondAttribute="bottom" id="GrQ-dm-EbR"/>
-                            <constraint firstItem="byr-tf-HM3" firstAttribute="leading" secondItem="au6-hQ-Mid" secondAttribute="leading" id="VfF-YV-WbJ"/>
-                            <constraint firstItem="byr-tf-HM3" firstAttribute="top" secondItem="au6-hQ-Mid" secondAttribute="top" id="q1Y-yY-WPJ"/>
-                            <constraint firstItem="au6-hQ-Mid" firstAttribute="trailing" secondItem="byr-tf-HM3" secondAttribute="trailing" id="rc0-eM-Kvm"/>
+                            <constraint firstAttribute="bottom" secondItem="byr-tf-HM3" secondAttribute="bottom" constant="10" id="0sk-wd-sTn"/>
+                            <constraint firstItem="byr-tf-HM3" firstAttribute="top" secondItem="rUu-Xn-3Ln" secondAttribute="top" constant="10" id="Dn8-CZ-05b"/>
+                            <constraint firstAttribute="trailing" secondItem="byr-tf-HM3" secondAttribute="trailing" constant="10" id="Loh-3Q-Xar"/>
+                            <constraint firstItem="byr-tf-HM3" firstAttribute="leading" secondItem="rUu-Xn-3Ln" secondAttribute="leading" constant="10" id="YLU-R0-bHu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="au6-hQ-Mid"/>
                     </view>
                     <connections>
                         <outlet property="todoContentTv" destination="byr-tf-HM3" id="llt-BZ-cI6"/>
+                        <outlet property="todoContentTvMarginBottom" destination="0sk-wd-sTn" id="K4D-YS-DC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TeR-Ju-fm9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="882"/>
+            <point key="canvasLocation" x="2465.625" y="880.9859154929577"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ThV-I0-CQs">
