@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JzB-LK-XOh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JzB-LK-XOh">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,17 +83,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IG4-J2-udw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IG4-J2-udw">
                                 <rect key="frame" x="15" y="190" width="290" height="363"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nH-Fp-e26">
+                                <rect key="frame" x="275" y="144" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="tapEditTodoContent:" destination="Sk2-ar-xYF" eventType="touchUpInside" id="UY0-WU-tQa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="fic-Z6-VRo" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="5Gx-SI-6z4"/>
+                            <constraint firstItem="7nH-Fp-e26" firstAttribute="top" secondItem="PmV-ED-tbc" secondAttribute="bottom" constant="15" id="5WG-T8-Acg"/>
                             <constraint firstItem="PmV-ED-tbc" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="G1D-Fr-L5x"/>
                             <constraint firstItem="NF8-dI-W3A" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="Gzg-vb-lqi"/>
                             <constraint firstItem="W2i-sr-brb" firstAttribute="bottom" secondItem="IG4-J2-udw" secondAttribute="bottom" constant="15" id="KmB-ft-9g0"/>
@@ -103,6 +111,7 @@
                             <constraint firstItem="IG4-J2-udw" firstAttribute="top" secondItem="NF8-dI-W3A" secondAttribute="bottom" constant="20" id="e6k-BP-6AJ"/>
                             <constraint firstItem="PmV-ED-tbc" firstAttribute="top" secondItem="fic-Z6-VRo" secondAttribute="bottom" constant="15" id="fI5-nD-bOa"/>
                             <constraint firstItem="IG4-J2-udw" firstAttribute="leading" secondItem="W2i-sr-brb" secondAttribute="leading" constant="15" id="j31-fh-CDb"/>
+                            <constraint firstItem="W2i-sr-brb" firstAttribute="trailing" secondItem="7nH-Fp-e26" secondAttribute="trailing" constant="15" id="tpW-Ie-Te0"/>
                             <constraint firstItem="fic-Z6-VRo" firstAttribute="top" secondItem="W2i-sr-brb" secondAttribute="top" constant="15" id="xz7-6q-jcH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2i-sr-brb"/>
@@ -148,16 +157,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oex-kS-blm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oex-kS-blm" customClass="SampleTextView" customModule="ITodo" customModuleProvider="target">
                                 <rect key="frame" x="15" y="146" width="290" height="407"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="hogehoge"/>
+                                </userDefinedRuntimeAttributes>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFk-Cs-DYi">
+                                <rect key="frame" x="275" y="100" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="tapEditTodoContent:" destination="74S-Ae-JOe" eventType="touchUpInside" id="SPf-hN-RSp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="YFk-Cs-DYi" firstAttribute="top" secondItem="ojv-y1-woE" secondAttribute="bottom" constant="15" id="4M7-qv-Pij"/>
                             <constraint firstItem="8VV-Rl-jui" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="64z-v6-gj9"/>
                             <constraint firstItem="RTQ-qr-erv" firstAttribute="trailing" secondItem="oex-kS-blm" secondAttribute="trailing" constant="15" id="7Yd-n9-BnH"/>
                             <constraint firstItem="ojv-y1-woE" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="Efu-bn-ujj"/>
@@ -165,6 +185,7 @@
                             <constraint firstItem="RTQ-qr-erv" firstAttribute="bottom" secondItem="oex-kS-blm" secondAttribute="bottom" constant="15" id="aXL-16-dct"/>
                             <constraint firstItem="oex-kS-blm" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="evv-Na-iTv"/>
                             <constraint firstItem="oex-kS-blm" firstAttribute="top" secondItem="lgy-w5-uS3" secondAttribute="bottom" constant="20" id="f3F-3s-R16"/>
+                            <constraint firstItem="RTQ-qr-erv" firstAttribute="trailing" secondItem="YFk-Cs-DYi" secondAttribute="trailing" constant="15" id="fEy-kr-Lta"/>
                             <constraint firstItem="ojv-y1-woE" firstAttribute="top" secondItem="8VV-Rl-jui" secondAttribute="bottom" constant="15" id="lvI-cy-ePu"/>
                             <constraint firstItem="lgy-w5-uS3" firstAttribute="top" secondItem="ojv-y1-woE" secondAttribute="bottom" constant="20" id="wZT-ND-ogo"/>
                             <constraint firstItem="lgy-w5-uS3" firstAttribute="leading" secondItem="RTQ-qr-erv" secondAttribute="leading" constant="15" id="xYf-c9-Y4Y"/>
@@ -183,6 +204,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ani-av-5dZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688" y="883"/>
+        </scene>
+        <!--Todo Content View Controller-->
+        <scene sceneID="C9o-RQ-vjA">
+            <objects>
+                <viewController storyboardIdentifier="TodoContentViewController" id="TwJ-2v-yte" customClass="TodoContentViewController" customModule="ITodo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rUu-Xn-3Ln">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byr-tf-HM3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="au6-hQ-Mid" firstAttribute="bottom" secondItem="byr-tf-HM3" secondAttribute="bottom" id="GrQ-dm-EbR"/>
+                            <constraint firstItem="byr-tf-HM3" firstAttribute="leading" secondItem="au6-hQ-Mid" secondAttribute="leading" id="VfF-YV-WbJ"/>
+                            <constraint firstItem="byr-tf-HM3" firstAttribute="top" secondItem="au6-hQ-Mid" secondAttribute="top" id="q1Y-yY-WPJ"/>
+                            <constraint firstItem="au6-hQ-Mid" firstAttribute="trailing" secondItem="byr-tf-HM3" secondAttribute="trailing" id="rc0-eM-Kvm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="au6-hQ-Mid"/>
+                    </view>
+                    <connections>
+                        <outlet property="todoContentTv" destination="byr-tf-HM3" id="llt-BZ-cI6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TeR-Ju-fm9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2466" y="882"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ThV-I0-CQs">

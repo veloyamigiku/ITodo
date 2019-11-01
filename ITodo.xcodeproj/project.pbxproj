@@ -17,6 +17,7 @@
 		38B538492346075200F80D54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B538482346075200F80D54 /* Assets.xcassets */; };
 		38B5384C2346075200F80D54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5384A2346075200F80D54 /* LaunchScreen.storyboard */; };
 		38B538542346090900F80D54 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B538532346090900F80D54 /* TodoListViewController.swift */; };
+		38C1139B236C111900C524D7 /* TodoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1139A236C111900C524D7 /* TodoContentViewController.swift */; };
 		E2DBA0FF875792A673EE6592 /* Pods_ITodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AD16FDBB92A275712C78BE /* Pods_ITodo.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		38B5384B2346075200F80D54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38B5384D2346075200F80D54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B538532346090900F80D54 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
+		38C1139A236C111900C524D7 /* TodoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoContentViewController.swift; sourceTree = "<group>"; };
 		AAD6828ABCF2E5F5122A82ED /* Pods-ITodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITodo.release.xcconfig"; path = "Target Support Files/Pods-ITodo/Pods-ITodo.release.xcconfig"; sourceTree = "<group>"; };
 		CF327C09A35B87688CBF90E9 /* Pods-ITodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITodo.debug.xcconfig"; path = "Target Support Files/Pods-ITodo/Pods-ITodo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				38B538532346090900F80D54 /* TodoListViewController.swift */,
 				38A1AF5C234711DB00EB38FE /* TodoAddViewController.swift */,
 				38A2DA02234C6A32008C491F /* TodoEditViewController.swift */,
+				38C1139A236C111900C524D7 /* TodoContentViewController.swift */,
 				38B538452346075100F80D54 /* Main.storyboard */,
 				38B538482346075200F80D54 /* Assets.xcassets */,
 				38B5384A2346075200F80D54 /* LaunchScreen.storyboard */,
@@ -229,6 +232,7 @@
 			files = (
 				38A1AF5D234711DB00EB38FE /* TodoAddViewController.swift in Sources */,
 				3848A5AA23555BFB0042C886 /* Todo.swift in Sources */,
+				38C1139B236C111900C524D7 /* TodoContentViewController.swift in Sources */,
 				38B538542346090900F80D54 /* TodoListViewController.swift in Sources */,
 				38B538402346075100F80D54 /* AppDelegate.swift in Sources */,
 				38B538422346075100F80D54 /* SceneDelegate.swift in Sources */,

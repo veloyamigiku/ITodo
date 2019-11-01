@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TodoAddViewController: UIViewController, UITextFieldDelegate {
+class TodoAddViewController: UIViewController {
     
     @IBOutlet weak var todoTitle: UITextField!
     @IBOutlet weak var todoContent: UITextView!
@@ -50,6 +50,19 @@ class TodoAddViewController: UIViewController, UITextFieldDelegate {
             // 前の画面に遷移する。
             nc.popViewController(animated: true)
         }
+    }
+    
+    // Todoの内容を編集するボタンをタップした時の処理。
+    @IBAction func tapEditTodoContent(_ sender: Any) {
+        
+        // Todoの内容編集画面のViewControllerを作成する。
+        let todoContentViewController = self.storyboard?.instantiateViewController(identifier: "TodoContentViewController") as! TodoContentViewController
+        
+        todoContentViewController.todoContentTvReadonly = todoContent
+        
+        // Todoの内容編集画面に遷移する。
+        self.navigationController?.pushViewController(todoContentViewController, animated: true)
+        
     }
     
 }

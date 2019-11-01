@@ -50,4 +50,18 @@ class TodoEditViewController: UIViewController {
             nc.popViewController(animated: true)
         }
     }
+    
+    // Todoの内容変更ボタンをタップした時の処理。
+    @IBAction func tapEditTodoContent(_ sender: Any) {
+        // Todoの内容編集画面のViewControllerを作成する。
+        let todoContentViewController = self.storyboard?.instantiateViewController(identifier: "TodoContentViewController") as! TodoContentViewController
+        
+        todoContentViewController.todoContentTvReadonly = todoContentTv
+        todoContentViewController.todoContent = todoContentTv.text
+        
+        // Todoの内容編集画面に遷移する。
+        self.navigationController?.pushViewController(todoContentViewController, animated: true)
+        
+    }
+    
 }
