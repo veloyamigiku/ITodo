@@ -12,7 +12,7 @@ import RealmSwift
 class TodoEditViewController: UIViewController {
     
     @IBOutlet weak var todoTitleTf: UITextField!
-    @IBOutlet weak var todoContentTv: UITextView!
+    @IBOutlet weak var todoContentTv: InspectableTextView!
     
     var todo: Todo! = nil
     var realm: Realm!
@@ -29,6 +29,11 @@ class TodoEditViewController: UIViewController {
             barButtonSystemItem: UIBarButtonItem.SystemItem.done,
             target: self,
             action: #selector(self.tapDone))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        todoContentTv.togglePlaceholder()
     }
     
     @objc func tapDone() {

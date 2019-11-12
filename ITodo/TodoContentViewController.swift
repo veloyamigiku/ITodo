@@ -10,13 +10,13 @@ import UIKit
 
 class TodoContentViewController: UIViewController {
     
-    @IBOutlet weak var todoContentTv: UITextView!
+    @IBOutlet weak var todoContentTv: InspectableTextView!
     @IBOutlet weak var todoContentTvMarginBottom: NSLayoutConstraint!
     
     // TextView(Todoの内容)に表示するTodoの内容を保管する変数。
     var todoContent: String = ""
     // 確定したTodoの内容編集の結果を反映するTextViewの参照を保管する。
-    var todoContentTvReadonly: UITextView!
+    var todoContentTvReadonly: InspectableTextView!
     // TextView(Todoの内容)のマージンを参照する変数。
     var todoContentTvMarginBottomDefault: CGFloat!
     
@@ -38,6 +38,7 @@ class TodoContentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureObserver()
+        todoContentTv.togglePlaceholder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

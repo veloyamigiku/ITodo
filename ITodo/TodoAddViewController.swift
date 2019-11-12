@@ -12,7 +12,7 @@ import RealmSwift
 class TodoAddViewController: UIViewController {
     
     @IBOutlet weak var todoTitle: UITextField!
-    @IBOutlet weak var todoContent: UITextView!
+    @IBOutlet weak var todoContent: InspectableTextView!
     
     var realm: Realm!
     
@@ -20,6 +20,13 @@ class TodoAddViewController: UIViewController {
         super.viewDidLoad()
         
         realm = try! Realm()
+    }
+    
+    // 画面表示の直前の処理。
+    // 画面初期表示や別の画面に遷移して戻ってきた時に呼び出される。
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        todoContent.togglePlaceholder()
     }
     
     @IBAction func tapDone(_ sender: Any) {
@@ -59,6 +66,7 @@ class TodoAddViewController: UIViewController {
         let todoContentViewController = self.storyboard?.instantiateViewController(identifier: "TodoContentViewController") as! TodoContentViewController
         
         todoContentViewController.todoContentTvReadonly = todoContent
+        todoContentViewController.todoContent = todoContent.text
         
         // Todoの内容編集画面に遷移する。
         self.navigationController?.pushViewController(todoContentViewController, animated: true)
